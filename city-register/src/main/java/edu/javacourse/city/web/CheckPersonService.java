@@ -7,6 +7,6 @@ import javax.ws.rs.Path;
 public class CheckPersonService {
     @GET
     public  String checkPerson() {
-        return "Sasha lyubit Katyushu";
+        return "Simple String";
     }
 }
