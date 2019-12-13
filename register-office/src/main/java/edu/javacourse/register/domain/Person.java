@@ -1,17 +1,31 @@
 package edu.javacourse.register.domain;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@Entity
+@Table(name = "ro_person")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "sex", discriminatorType = DiscriminatorType.INTEGER)
 public class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "person_id")
     private Long personId;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "patronymic")
     private String patronymic;
+    @Column(name = "date_birth")
     private LocalDate dateOfBirth;
+    @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY,
+    mappedBy = "person")
     private List<Passport> passports;
-    private BirthCertificate birthCertificate;
+//    private BirthCertificate birthCertificate;
 
     public Long getPersonId() {
         return personId;
@@ -61,11 +75,11 @@ public class Person {
         this.passports = passports;
     }
 
-    public BirthCertificate getBirthCertificate() {
-        return birthCertificate;
-    }
-
-    public void setBirthCertificate(BirthCertificate birthCertificate) {
-        this.birthCertificate = birthCertificate;
-    }
+//    public BirthCertificate getBirthCertificate() {
+//        return birthCertificate;
+//    }
+//
+//    public void setBirthCertificate(BirthCertificate birthCertificate) {
+//        this.birthCertificate = birthCertificate;
+//    }
 }
