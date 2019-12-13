@@ -8,13 +8,22 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.List;
 
 public class PersonManager {
 
     public static void main(String[] args) {
 
-        SessionFactory sf = buildSessionFactory();
+        sessionHibernateExample();
+
+        jpaHibernateExample();
+    }
+
+    private static void sessionHibernateExample() {
+        SessionFactory sf = buildSessionHibernateFactory();
         System.out.println();
         System.out.println();
         System.out.println();
@@ -47,7 +56,30 @@ public class PersonManager {
         session.close();
     }
 
-    private static SessionFactory buildSessionFactory() {
+    private static void jpaHibernateExample() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence");
+
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+
+        Person person = new Person();
+        person.setFirstName("Алексей");
+        person.setLastName("Федоров");
+        em.persist(person);
+        System.out.println(person.getPersonId());
+
+        em.getTransaction().commit();
+        em.close();
+
+        em = emf.createEntityManager();
+        List list = em.createQuery("FROM Person").getResultList();
+        list.forEach(p -> System.out.println(p));
+
+        em.close();
+    }
+
+    private static SessionFactory buildSessionHibernateFactory() {
         try {
             StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .configure("hibernate.cfg.xml").build();
