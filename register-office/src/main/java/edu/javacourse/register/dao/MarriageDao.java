@@ -8,29 +8,29 @@ import org.slf4j.LoggerFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.swing.*;
 
 public class MarriageDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MarriageDao.class);
 
     private EntityManager entityManager;
+    private String test;
 
-    public MarriageDao() {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistence");
-        this.entityManager = factory.createEntityManager();
+
+    public void setTest(String test) {
+        this.test = test;
     }
 
-    public MarriageCertificate findMarriageCertificate(MarriageRequest request) {
-        LOGGER.info("MarriageDao findMarriageCertificate is called..");
+//    public MarriageDao(EntityManager entityManager) {
+//        EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistence");
+//        this.entityManager = factory.createEntityManager();
+//    }
 
-        Query query = entityManager.createNamedQuery("MarriageCertificate.findCertificates");
-        query.setParameter("number", request.getMarriageCertificateNumber());
-        query.setParameter("issueDate", request.getMarriageCertificateIssueDate());
-        if (query.getResultList().size() > 0) {
-            return (MarriageCertificate) query.getResultList().get(0);
-        } else {
-            return null;
-        }
+    public MarriageCertificate findMarriageCertificate(MarriageRequest request) {
+        LOGGER.info("findMarriageCertificate called: {}", test);
+        // TODO: 16.12.2019
+
+        return null;
     }
 }

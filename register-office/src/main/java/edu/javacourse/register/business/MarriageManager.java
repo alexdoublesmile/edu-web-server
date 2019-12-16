@@ -11,23 +11,18 @@ public class MarriageManager {
     
     private static final Logger LOGGER = LoggerFactory.getLogger(MarriageDao.class);
 
-    private MarriageDao marriageDao = new MarriageDao();
+    private MarriageDao marriageDao;
+
+    public void setMarriageDao(MarriageDao marriageDao) {
+        this.marriageDao = marriageDao;
+    }
 
     public MarriageResponse findMarriageCertificate(MarriageRequest request) {
-        LOGGER.info("MarriageManager findMarriageCertificate is called..");
+        LOGGER.info("findMarriageCertificate is called..");
         MarriageCertificate cert = marriageDao.findMarriageCertificate(request);
+        // TODO: 16.12.2019
 
-        MarriageResponse response = new MarriageResponse();
-        if (cert != null) {
-            if (cert.isActive()) {
-                response.setStatus(MarriageResponse.getExists());
-            } else {
-                response.setStatus(MarriageResponse.getNotActive());
-            }
-        } else {
-            response.setStatus(MarriageResponse.getNotExists());
-        }
 
-        return response;
+        return new MarriageResponse();
     }
 }
