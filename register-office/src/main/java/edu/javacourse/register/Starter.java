@@ -15,3 +15,4 @@ public class Starter {
         controller.findMarriageCertificate(new MarriageRequest());
     }
 }
+
