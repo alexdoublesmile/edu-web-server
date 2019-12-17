@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 @Component
 public class MarriageDao {
@@ -22,11 +23,6 @@ public class MarriageDao {
     public void setTest(String test) {
         this.test = test;
     }
-
-//    public MarriageDao(EntityManager entityManager) {
-//        EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistence");
-//        this.entityManager = factory.createEntityManager();
-//    }
 
     public MarriageCertificate findMarriageCertificate(MarriageRequest request) {
         LOGGER.info("findMarriageCertificate called: {}", test);
