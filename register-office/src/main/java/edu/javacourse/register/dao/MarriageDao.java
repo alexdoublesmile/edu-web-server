@@ -19,14 +19,8 @@ public class MarriageDao {
     @Value("${test.value}")
     private String test;
 
-
-    public void setTest(String test) {
-        this.test = test;
-    }
-
     public MarriageCertificate findMarriageCertificate(MarriageRequest request) {
         LOGGER.info("findMarriageCertificate called: {}", test);
-        // TODO: 16.12.2019
 
         return null;
     }

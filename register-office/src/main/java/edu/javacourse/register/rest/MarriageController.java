@@ -14,13 +14,10 @@ import org.springframework.stereotype.Service;
 public class MarriageController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MarriageDao.class);
+
     @Autowired
     @Qualifier("marriageService")
     private MarriageManager marriageManager;
-
-    public void setMarriageManager(MarriageManager marriageManager) {
-        this.marriageManager = marriageManager;
-    }
 
     public MarriageResponse findMarriageCertificate(MarriageRequest request) {
         LOGGER.info("MarriageController findMarriageCertificate is called..");
