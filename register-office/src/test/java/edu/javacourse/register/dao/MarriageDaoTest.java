@@ -27,7 +27,7 @@ public class MarriageDaoTest {
     @Test
     public void testMarriageCertificate() {
         findMarriageCertificate();
-        showMarriageCertificate();
+//        showMarriageCertificate();
     }
 
     @Test
@@ -45,20 +45,20 @@ public class MarriageDaoTest {
 
     }
 
-    @Test
-    public void showMarriageCertificate() {
-        if (!response.getStatus().equals(MarriageResponse.getNotExists())) {
-
-            MarriageDao dao = new MarriageDao();
-            MarriageCertificate cert = dao.findMarriageCertificate(request);
-            System.out.println(String.format("Number: %s", cert.getNumber()));
-            System.out.println(String.format("Issue Date: %s", cert.getIssueDate()));
-            System.out.println(String.format("Expired Date: %s", cert.getEndDate()));
-            Person husband = cert.getHusband();
-            Person wife = cert.getWife();
-            System.out.println(String.format("Husband: %s %s", husband.getLastName(), husband.getFirstName()));
-            System.out.println(String.format("Wife: %s %s", wife.getLastName(), wife.getFirstName()));
-
-        }
-    }
+//    @Test
+//    public void showMarriageCertificate() {
+//        if (!response.getStatus().equals(MarriageResponse.getNotExists())) {
+//
+//            MarriageDao dao = new MarriageDao();
+//            MarriageCertificate cert = dao.findMarriageCertificate(request);
+//            System.out.println(String.format("Number: %s", cert.getNumber()));
+//            System.out.println(String.format("Issue Date: %s", cert.getIssueDate()));
+//            System.out.println(String.format("Expired Date: %s", cert.getEndDate()));
+//            Person husband = cert.getHusband();
+//            Person wife = cert.getWife();
+//            System.out.println(String.format("Husband: %s %s", husband.getLastName(), husband.getFirstName()));
+//            System.out.println(String.format("Wife: %s %s", wife.getLastName(), wife.getFirstName()));
+//
+//        }
+//    }
 }
