@@ -9,7 +9,10 @@ import java.time.LocalDate;
         @NamedQuery(name = "MarriageCertificate.findCertificates",
         query = "SELECT mc FROM MarriageCertificate mc " +
                 "WHERE mc.number = :number " +
-                "AND mc.issueDate =: issueDate")
+                "AND mc.issueDate =: issueDate"),
+        @NamedQuery(name = "MarriageCertificate.findByNum",
+        query = "SELECT mc FROM MarriageCertificate mc " +
+                "WHERE mc.number = :number")
 })
 public class MarriageCertificate {
 
