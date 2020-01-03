@@ -9,6 +9,15 @@ public class MarriageResponse implements Serializable {
     private static final String NOT_ACTIVE = "IS EXISTS, BUT NOT ACTIVE";
 
     private String status;
+    private boolean existing;
+
+    public boolean isExisting() {
+        return existing;
+    }
+
+    public void setExisting(boolean existing) {
+        this.existing = existing;
+    }
 
     public String getStatus() {
         return status;

@@ -24,24 +24,24 @@ public class MarriageDaoTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MarriageDaoTest.class);
 
-    @Test
-    public void testMarriageCertificate() {
-        findMarriageCertificate();
+//    @Test
+//    public void testMarriageCertificate() {
+//        findMarriageCertificate();
 //        showMarriageCertificate();
-    }
+//    }
 
     @Test
     public void findMarriageCertificate() {
-        request = new MarriageRequest();
-        request.setMarriageCertificateNumber("123 Marriage");
-        request.setMarriageCertificateIssueDate(LocalDate.parse("2017-2-2", DateTimeFormatter.ofPattern("yyyy-M-d")));
-        LOGGER.info(request.toString());
-
-
-        MarriageController controller = new MarriageController();
-        response = controller.findMarriageCertificate(request);
-        System.out.println(String.format("The certificate №%s %s", request.getMarriageCertificateNumber(), response.getStatus()));
-        System.out.println("");
+//        request = new MarriageRequest();
+//        request.setMarriageCertificateNumber("123 Marriage");
+//        request.setMarriageCertificateIssueDate(LocalDate.parse("2017-2-2", DateTimeFormatter.ofPattern("yyyy-M-d")));
+//        LOGGER.info(request.toString());
+//
+//
+//        MarriageController controller = new MarriageController();
+//        response = controller.findMarriageCertificate(request);
+//        System.out.println(String.format("The certificate №%s %s", request.getMarriageCertificateNumber(), response.getStatus()));
+//        System.out.println("");
 
     }
 
